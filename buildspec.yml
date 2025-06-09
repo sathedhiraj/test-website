@@ -1,0 +1,27 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14  # Optional, if you use any tools like npm
+    commands:
+      - echo Installing dependencies (if any)
+
+  pre_build:
+    commands:
+      - echo Pre-Build Phase - nothing to do for static HTML
+
+  build:
+    commands:
+      - echo Build Phase - copying files
+      - mkdir -p dist
+      - cp -r * dist/
+
+  post_build:
+    commands:
+      - echo Build complete. Preparing artifacts.
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: dist
